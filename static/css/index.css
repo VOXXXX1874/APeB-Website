@@ -1,5 +1,21 @@
 body {
   font-family: 'Noto Sans', sans-serif;
+  background-color: #ededed;
+  color: #3f3f3f;
+}
+
+.navbar {
+  background-color: transparent;
+}
+
+.navbar-item,
+.navbar-link {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.navbar-link .icon {
+  color: #ff7a00;
+  margin-right: 0.2rem;
 }
 
 
@@ -28,7 +44,37 @@ body {
 }
 
 
+.apeb-hero .hero-body {
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+}
+
 .publication-title {
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.publication-title-icon {
+  color: #2f4f63;
+  margin-right: 0.4rem;
+}
+
+.publication-subtitle {
+  margin-top: 0.75rem;
+  margin-bottom: 1.25rem;
+  color: #4d4d4d;
+  font-weight: 500;
+}
+
+.placeholder-label {
+  color: #585858;
+}
+
+.link-placeholder-note {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
 }
 
 .publication-banner {
@@ -87,6 +133,35 @@ body {
 
 .publication-authors {
   /*color: #4286f4;*/
+}
+
+.introduction-section {
+  padding-top: 2rem;
+}
+
+.introduction-section .title {
+  margin-bottom: 1.5rem;
+}
+
+.introduction-section .content {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #4a4a4a;
+}
+
+@media screen and (max-width: 768px) {
+  .publication-title {
+    font-size: 2rem !important;
+  }
+
+  .publication-subtitle {
+    font-size: 1.4rem !important;
+  }
+
+  .introduction-section .content {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
 }
 
 .publication-video {
