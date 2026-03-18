@@ -1,6 +1,6 @@
 body {
   font-family: 'Noto Sans', sans-serif;
-  background-color: #ededed;
+  background-color: #ffffff;
   color: #3f3f3f;
 }
 
@@ -149,6 +149,81 @@ body {
   color: #4a4a4a;
 }
 
+.leaderboard-section {
+  padding-top: 0.5rem;
+  padding-bottom: 3rem;
+}
+
+.leaderboard-container {
+  max-width: 1360px !important;
+}
+
+.leaderboard-note {
+  color: #5a5a5a;
+  margin-bottom: 1rem;
+}
+
+.leaderboard-table-container {
+  background-color: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-radius: 10px;
+}
+
+.leaderboard-table {
+  min-width: 1180px;
+  margin-bottom: 0;
+}
+
+.leaderboard-table thead th {
+  font-family: 'Google Sans', sans-serif;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #cfcfcf;
+  background-color: #d6d6d6;
+  color: #333333;
+}
+
+.leaderboard-table thead th.nowrap-header {
+  white-space: nowrap;
+  min-width: 165px;
+}
+
+.leaderboard-table tbody td {
+  border: 1px solid #d8d8d8;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.leaderboard-table tbody td:nth-child(2) {
+  text-align: left;
+  font-weight: 600;
+}
+
+.benchmark-examples-section {
+  padding-top: 0.5rem;
+  padding-bottom: 4rem;
+}
+
+.benchmark-example-note {
+  color: #5a5a5a;
+  margin-bottom: 1rem;
+}
+
+.benchmark-example-card {
+  background-color: #f4f6f8;
+  border: 1px solid #d8dde3;
+  border-radius: 12px;
+  padding: 0.85rem;
+}
+
+.benchmark-example-media {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
 @media screen and (max-width: 768px) {
   .publication-title {
     font-size: 2rem !important;
@@ -162,6 +237,13 @@ body {
     font-size: 1rem;
     line-height: 1.7;
   }
+
+  .leaderboard-table thead th,
+  .leaderboard-table tbody td {
+    font-size: 0.9rem;
+    padding: 0.55rem;
+  }
+
 }
 
 .publication-video {
