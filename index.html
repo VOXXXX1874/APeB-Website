@@ -377,6 +377,12 @@
   </div>
 </section>
 
+<section class="section major-section-banner" id="benchmark-group">
+  <div class="container is-max-widescreen has-text-centered">
+    <h2 class="major-section-title">Benchmark</h2>
+  </div>
+</section>
+
 <section class="section benchmark-examples-section" id="data-examples">
   <div class="container is-max-widescreen">
     <div class="columns is-centered">
@@ -414,6 +420,186 @@
                 <p class="benchmark-example-caption">
                   A concrete example of a behavioral log in APeB, showcasing how can we deduces user intent and preferences from noisy histories to reproduce the decision-making process and make personalized recommendations. While benchmarking different models, we will use history, intent/refined query, and candidate as input and evaluate whether the model choose the correct candidate.
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section benchmark-visual-section" id="data-statistics">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths-desktop is-full-mobile">
+        <h2 class="title is-3 has-text-centered">Data Statistics</h2>
+        <p class="benchmark-example-note has-text-centered">
+          APeB contains 5K+ shopping sessions that covers various product categories. Each session is equipped with 10+ non-trivial candidates and rich interaction history.
+        </p>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-11-desktop is-full-mobile">
+        <figure class="benchmark-visual-figure">
+          <img
+            class="benchmark-visual-media"
+            src="./static/image/APeB-Statistics.png"
+            alt="APeB data statistics"
+          />
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section benchmark-visual-section" id="benchmark-comparison">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths-desktop is-full-mobile">
+        <h2 class="title is-3 has-text-centered">Benchmark Comparison</h2>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-11-desktop is-full-mobile">
+        <figure class="benchmark-visual-figure">
+          <img
+            class="benchmark-visual-media"
+            src="./static/image/APeB-Comparison.png"
+            alt="APeB benchmark comparison"
+          />
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section major-section-banner" id="experiments-group">
+  <div class="container is-max-widescreen has-text-centered">
+    <h2 class="major-section-title">Case Studies</h2>
+  </div>
+</section>
+
+<section class="section benchmark-examples-section" id="model-recommendation-examples">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths-desktop is-full-mobile">
+        <h2 class="title is-3 has-text-centered">Recommendation from Different Models</h2>
+        <p class="benchmark-example-note has-text-centered">
+          Impact of capturing the key preferences from history on recommendation performance. Models need to deduce user preference from history based on the intent query.
+        </p>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="data-example-carousel-wrapper">
+          <div class="carousel data-example-carousel" aria-label="Model recommendation examples carousel">
+            <div class="item data-example-slide">
+              <div class="benchmark-example-card">
+                <img
+                  class="benchmark-example-media"
+                  src="./static/image/APeB-Model-Example.png"
+                  alt="Model recommendation example overview"
+                />
+                <p class="benchmark-example-caption">
+                  An example of of non-triveal shopping session in APeB, where the user refines search queries multiple times and browses extensively before making a purchase. We will see show different models analyze the history and make recommendations based on the inferred intent and preferences.
+                </p>
+              </div>
+            </div>
+            <div class="item data-example-slide">
+              <div class="benchmark-example-card">
+                <img
+                  class="benchmark-example-media"
+                  src="./static/image/APeB-Model-Example-GPT.png"
+                  alt="Model recommendation example GPT"
+                />
+                <p class="benchmark-example-caption">
+                  GPT5.2 successfully capture the user's perference "long battery life" from the history and recommend the correct product.
+                </p>
+              </div>
+            </div>
+            <div class="item data-example-slide">
+              <div class="benchmark-example-card">
+                <img
+                  class="benchmark-example-media"
+                  src="./static/image/APeB-Model-Example-Gemini.png"
+                  alt="Model recommendation example Gemini"
+                />
+                <p class="benchmark-example-caption">
+                  Gemini 2.5 consider "health monitoring" as the main user intent, but in fact the "health monitoring" feature is not a majority preference in history.
+                </p>
+              </div>
+            </div>
+            <div class="item data-example-slide">
+              <div class="benchmark-example-card">
+                <img
+                  class="benchmark-example-media"
+                  src="./static/image/APeB-Model-Example-Qwen.png"
+                  alt="Model recommendation example Qwen"
+                />
+                <p class="benchmark-example-caption">
+                  Qwen3 deduce the user preference on "health monitoring" based on the fact that user has browsed body serums and bleaching enhancers, which is somewhat far-fetched and leads to wrong recommendation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section benchmark-examples-section" id="agent-recommendation-examples">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths-desktop is-full-mobile">
+        <h2 class="title is-3 has-text-centered">Recommendation from Different Agents</h2>
+        <p class="benchmark-example-note has-text-centered">
+          Comparison of different agent workflows on analyzing user history and make personalized recommendation based on intent query.
+        </p>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="data-example-carousel-wrapper">
+          <div class="carousel data-example-carousel" aria-label="Agent recommendation examples carousel">
+            <div class="item data-example-slide">
+              <div class="benchmark-example-card">
+                <img
+                  class="benchmark-example-media"
+                  src="./static/image/APeB-Agent-Example.png"
+                  alt="Agent recommendation example overview"
+                />
+                <p class="benchmark-example-caption">
+                  An example of of non-triveal shopping session in APeB, where the user refines search queries multiple times and browses extensively before making a purchase. We will show how different agent architectures analyze the history.
+                </p>
+              </div>
+            </div>
+            <div class="item data-example-slide">
+              <div class="benchmark-example-card">
+                <img
+                  class="benchmark-example-media"
+                  src="./static/image/APeB-Agent-Example-VQRA.png"
+                  alt="Agent recommendation example VQRA"
+                />
+                <p class="benchmark-example-caption">
+                  VQRA agent successfully detect the true intent of "hair growth oil" based on the history and rewrite the intent query to a clearer one, which leads to correct recommendation.
+                </p>
+              </div>
+            </div>
+            <div class="item data-example-slide">
+              <div class="benchmark-example-card">
+                <img
+                  class="benchmark-example-media"
+                  src="./static/image/APeB-Agent-Example-ReAct.png"
+                  alt="Agent recommendation example ReAct"
+                />
+                <p class="benchmark-example-caption">
+                  ReAct agent is misled by the ambiguity in user's intent query and the noisy history, which leads to wrong recommendation.
+                </p>
+
               </div>
             </div>
           </div>
