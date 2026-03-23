@@ -133,13 +133,26 @@
 <section class="section introduction-section">
   <div class="container is-max-desktop">
     <!-- Introduction. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Introduction</h2>
-        <div class="content has-text-justified">
-          <p>
-            LLM-powered agents struggle with personalization, which requires resolving vanilla intents, inferring user-specific preferences, and finding useroptimal solutions from competing alternatives. Existing benchmarks largely fail to assess these challenges under vague goals and noisy interaction histories. We propose personalized product search (PPS) as a testbed for agentic personalization under raw queries and diverse histories. We construct Agent Personalized Benchmark (APeB) from holistic action logs, featuring rich histories, vanilla intents, and hard candidate sets. We benchmark eight state-of-the-art LLMs with agentic workflows. LLMs excel on user-refined explicit queries, but struggle on initial vague queries that require latent intent and preference discovery. Fine-grained analysis attribute this gap to ineffective use of historical interactions for intent and preference inference. We further find that a simple history-conditioned refinement of vague queries yields consistent gains, emphasizing the role of effective history utilization in personalization.
-          </p>
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Introduction</h2>
+        <div class="columns is-vcentered introduction-layout">
+          <div class="column is-7-desktop is-full-mobile">
+            <div class="content has-text-justified">
+              <p>
+                LLM-powered agents struggle with personalization, which requires resolving vanilla intents, inferring user-specific preferences, and finding useroptimal solutions from competing alternatives. Existing benchmarks largely fail to assess these challenges under vague goals and noisy interaction histories. We propose personalized product search (PPS) as a testbed for agentic personalization under raw queries and diverse histories. We construct Agent Personalized Benchmark (APeB) from holistic action logs, featuring rich histories, vanilla intents, and hard candidate sets. We benchmark eight state-of-the-art LLMs with agentic workflows. LLMs excel on user-refined explicit queries, but struggle on initial vague queries that require latent intent and preference discovery. Fine-grained analysis attribute this gap to ineffective use of historical interactions for intent and preference inference. We further find that a simple history-conditioned refinement of vague queries yields consistent gains, emphasizing the role of effective history utilization in personalization.
+              </p>
+            </div>
+          </div>
+          <div class="column is-5-desktop is-full-mobile">
+            <figure class="introduction-figure">
+              <img
+                class="introduction-media"
+                src="./static/image/APeB-Intro.png"
+                alt="APeB benchmark overview"
+              />
+            </figure>
+          </div>
         </div>
       </div>
     </div>
@@ -153,73 +166,211 @@
       <div class="column is-full">
         <h2 class="title is-3 has-text-centered">Leaderboard</h2>
         <p class="leaderboard-note has-text-centered">
-          Scores across three settings: LLM, Agent, and Agent System.
+          Compare models by architecture type and query category.
         </p>
 
-        <div class="table-container leaderboard-table-container">
-          <table class="table is-fullwidth leaderboard-table">
-            <thead>
-              <tr>
-                <th rowspan="2">#</th>
-                <th rowspan="2">Model</th>
-                <th rowspan="2" class="nowrap-header">LLM Params</th>
-                <th rowspan="2" class="nowrap-header">history length</th>
-                <th rowspan="2">Date</th>
-                <th colspan="2">LLM</th>
-                <th colspan="2">Agent</th>
-                <th colspan="2">Agent System</th>
-              </tr>
-              <tr>
-                <th>intent query</th>
-                <th>refined query</th>
-                <th>intent query</th>
-                <th>refined query</th>
-                <th>intent query</th>
-                <th>refined query</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Model Placeholder A</td>
-                <td>70B</td>
-                <td>50</td>
-                <td>2026-03-18</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Model Placeholder B</td>
-                <td>13B</td>
-                <td>20</td>
-                <td>2026-03-18</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Model Placeholder C</td>
-                <td>8B</td>
-                <td>10</td>
-                <td>2026-03-18</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-                <td>--</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="leaderboard-nav" role="tablist" aria-label="Architecture leaderboard selector">
+          <button class="leaderboard-nav-button is-active" data-leaderboard-target="llm" role="tab" aria-selected="true">LLM</button>
+          <button class="leaderboard-nav-button" data-leaderboard-target="agent" role="tab" aria-selected="false">Agent</button>
+          <button class="leaderboard-nav-button" data-leaderboard-target="agent-system" role="tab" aria-selected="false">Agent System</button>
+        </div>
+
+        <div class="leaderboard-panel is-active" data-leaderboard-panel="llm">
+          <div class="table-container leaderboard-table-container">
+            <table class="table is-fullwidth leaderboard-table">
+              <thead>
+                <tr>
+                  <th rowspan="2">#</th>
+                  <th rowspan="2">Model</th>
+                  <th rowspan="2" class="compact-header" title="LLM Parameters">LLM<br>Param</th>
+                  <th rowspan="2" class="compact-header" title="History Length">Hist.<br>Len.</th>
+                  <th rowspan="2" title="Date">Date</th>
+                  <th colspan="5" title="Intent Query">Intent Q.</th>
+                  <th colspan="5" title="Refined Query">Refined Q.</th>
+                </tr>
+                <tr>
+                  <th title="Personal Care">P-Care</th>
+                  <th title="Clothing">Cloth</th>
+                  <th title="Food and Beverages">F&amp;B</th>
+                  <th title="Others">Other</th>
+                  <th title="Average">Avg.</th>
+                  <th title="Personal Care">P-Care</th>
+                  <th title="Clothing">Cloth</th>
+                  <th title="Food and Beverages">F&amp;B</th>
+                  <th title="Others">Other</th>
+                  <th title="Average">Avg.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Model Placeholder A</td>
+                  <td>70B</td>
+                  <td>50</td>
+                  <td>2026-03-18</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Model Placeholder B</td>
+                  <td>13B</td>
+                  <td>20</td>
+                  <td>2026-03-18</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="leaderboard-panel" data-leaderboard-panel="agent">
+          <div class="table-container leaderboard-table-container">
+            <table class="table is-fullwidth leaderboard-table">
+              <thead>
+                <tr>
+                  <th rowspan="2">#</th>
+                  <th rowspan="2">Architecture</th>
+                  <th rowspan="2" class="compact-header" title="Backbone">Backbone</th>
+                  <th rowspan="2" class="compact-header" title="History Length">Hist.<br>Len.</th>
+                  <th rowspan="2" title="Date">Date</th>
+                  <th colspan="5" title="Intent Query">Intent Q.</th>
+                  <th colspan="5" title="Refined Query">Refined Q.</th>
+                </tr>
+                <tr>
+                  <th title="Personal Care">P-Care</th>
+                  <th title="Clothing">Cloth</th>
+                  <th title="Food and Beverages">F&amp;B</th>
+                  <th title="Others">Other</th>
+                  <th title="Average">Avg.</th>
+                  <th title="Personal Care">P-Care</th>
+                  <th title="Clothing">Cloth</th>
+                  <th title="Food and Beverages">F&amp;B</th>
+                  <th title="Others">Other</th>
+                  <th title="Average">Avg.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Agent Placeholder A</td>
+                  <td>Pipeline-X</td>
+                  <td>50</td>
+                  <td>2026-03-18</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Agent Placeholder B</td>
+                  <td>Pipeline-Y</td>
+                  <td>20</td>
+                  <td>2026-03-18</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="leaderboard-panel" data-leaderboard-panel="agent-system">
+          <div class="table-container leaderboard-table-container">
+            <table class="table is-fullwidth leaderboard-table">
+              <thead>
+                <tr>
+                  <th rowspan="2">#</th>
+                  <th rowspan="2">Architecture</th>
+                  <th rowspan="2" class="compact-header" title="Backbone">Backbone</th>
+                  <th rowspan="2" class="compact-header" title="History Length">Hist.<br>Len.</th>
+                  <th rowspan="2" title="Date">Date</th>
+                  <th colspan="5" title="Intent Query">Intent Q.</th>
+                  <th colspan="5" title="Refined Query">Refined Q.</th>
+                </tr>
+                <tr>
+                  <th title="Personal Care">P-Care</th>
+                  <th title="Clothing">Cloth</th>
+                  <th title="Food and Beverages">F&amp;B</th>
+                  <th title="Others">Other</th>
+                  <th title="Average">Avg.</th>
+                  <th title="Personal Care">P-Care</th>
+                  <th title="Clothing">Cloth</th>
+                  <th title="Food and Beverages">F&amp;B</th>
+                  <th title="Others">Other</th>
+                  <th title="Average">Avg.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>System Placeholder A</td>
+                  <td>Graph + Tools</td>
+                  <td>50</td>
+                  <td>2026-03-18</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>System Placeholder B</td>
+                  <td>Planner + Memory</td>
+                  <td>20</td>
+                  <td>2026-03-18</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                  <td>--</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -239,12 +390,33 @@
 
     <div class="columns is-centered">
       <div class="column is-full">
-        <div class="benchmark-example-card">
-          <img
-            class="benchmark-example-media"
-            src="./static/image/APeB-General-Example.svg"
-            alt="APeB general example"
-          />
+        <div class="data-example-carousel-wrapper">
+          <div class="carousel data-example-carousel" aria-label="Data examples carousel">
+            <div class="item data-example-slide">
+              <div class="benchmark-example-card">
+                <img
+                  class="benchmark-example-media"
+                  src="./static/image/APeB-General-Example.png"
+                  alt="APeB data example 1"
+                />
+                <p class="benchmark-example-caption">
+                  Construction Pipeline of APeB: from behavioral logs to benchmark components: curated heterogeneous interactions, non-trivial shopping session discovery (search refinement, extensive browsing, and intent-order alignment), and intent/refined query candidate pair identification.
+                </p>
+              </div>
+            </div>
+            <div class="item data-example-slide">
+              <div class="benchmark-example-card">
+                <img
+                  class="benchmark-example-media"
+                  src="./static/image/APeB-Example-1.png"
+                  alt="APeB data example 2"
+                />
+                <p class="benchmark-example-caption">
+                  A concrete example of a behavioral log in APeB, showcasing how can we deduces user intent and preferences from noisy histories to reproduce the decision-making process and make personalized recommendations. While benchmarking different models, we will use history, intent/refined query, and candidate as input and evaluate whether the model choose the correct candidate.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -149,6 +149,27 @@ body {
   color: #4a4a4a;
 }
 
+.introduction-layout {
+  margin-top: 0.2rem;
+}
+
+.introduction-figure {
+  margin: 0;
+  padding: 0.65rem;
+  border: 1px solid #d8dde3;
+  border-radius: 12px;
+  background: #f7f9fb;
+  box-shadow: 0 8px 20px rgba(38, 47, 56, 0.08);
+}
+
+.introduction-media {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
 .leaderboard-section {
   padding-top: 0.5rem;
   padding-bottom: 3rem;
@@ -163,6 +184,45 @@ body {
   margin-bottom: 1rem;
 }
 
+.leaderboard-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.leaderboard-nav-button {
+  border: 1px solid #b9bec4;
+  background: #f2f4f6;
+  color: #2f3d4a;
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.leaderboard-nav-button:hover {
+  border-color: #8695a3;
+  background: #e7ecf0;
+}
+
+.leaderboard-nav-button.is-active {
+  background: #2f4f63;
+  border-color: #2f4f63;
+  color: #ffffff;
+}
+
+.leaderboard-panel {
+  display: none;
+}
+
+.leaderboard-panel.is-active {
+  display: block;
+}
+
 .leaderboard-table-container {
   background-color: #ffffff;
   border: 1px solid #d0d0d0;
@@ -170,8 +230,10 @@ body {
 }
 
 .leaderboard-table {
-  min-width: 1180px;
+  min-width: 1320px;
   margin-bottom: 0;
+  font-size: 0.9rem;
+  table-layout: fixed;
 }
 
 .leaderboard-table thead th {
@@ -181,6 +243,7 @@ body {
   border: 1px solid #cfcfcf;
   background-color: #d6d6d6;
   color: #333333;
+  padding: 0.42rem 0.38rem;
 }
 
 .leaderboard-table thead th.nowrap-header {
@@ -188,10 +251,41 @@ body {
   min-width: 165px;
 }
 
+.leaderboard-table thead th.compact-header {
+  min-width: 76px;
+  line-height: 1.15;
+}
+
+.leaderboard-table thead th:nth-child(1),
+.leaderboard-table tbody td:nth-child(1) {
+  width: 48px;
+}
+
+.leaderboard-table thead th:nth-child(2),
+.leaderboard-table tbody td:nth-child(2) {
+  width: 220px;
+}
+
+.leaderboard-table thead th:nth-child(3),
+.leaderboard-table tbody td:nth-child(3) {
+  width: 86px;
+}
+
+.leaderboard-table thead th:nth-child(4),
+.leaderboard-table tbody td:nth-child(4) {
+  width: 82px;
+}
+
+.leaderboard-table thead th:nth-child(5),
+.leaderboard-table tbody td:nth-child(5) {
+  width: 108px;
+}
+
 .leaderboard-table tbody td {
   border: 1px solid #d8d8d8;
   text-align: center;
   vertical-align: middle;
+  padding: 0.42rem 0.38rem;
 }
 
 .leaderboard-table tbody td:nth-child(2) {
@@ -224,6 +318,60 @@ body {
   background-color: #ffffff;
 }
 
+.benchmark-example-caption {
+  margin-top: 0.7rem;
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #4f5b66;
+  text-align: left;
+}
+
+.data-example-carousel-wrapper {
+  position: relative;
+}
+
+.data-example-carousel {
+  overflow: hidden;
+}
+
+.data-example-carousel .item {
+  padding: 0.2rem;
+}
+
+.data-example-carousel .slider-navigation-previous,
+.data-example-carousel .slider-navigation-next {
+  background: #ffffff;
+  border: 1px solid #cfd5db;
+  color: #3a3a3a;
+  box-shadow: 0 4px 14px rgba(40, 45, 50, 0.14);
+  width: 2.6rem;
+  height: 2.6rem;
+}
+
+.data-example-carousel .slider-navigation-previous {
+  left: 0.45rem;
+}
+
+.data-example-carousel .slider-navigation-next {
+  right: 0.45rem;
+}
+
+.data-example-carousel .slider-pagination {
+  bottom: 0.45rem;
+}
+
+.data-example-carousel .slider-page {
+  background: rgba(40, 48, 58, 0.24);
+  border: none;
+  width: 10px;
+  height: 10px;
+}
+
+.data-example-carousel .slider-page.is-active {
+  background: #2f4f63;
+}
+
 @media screen and (max-width: 768px) {
   .publication-title {
     font-size: 2rem !important;
@@ -238,10 +386,28 @@ body {
     line-height: 1.7;
   }
 
+  .introduction-layout {
+    margin-top: 0;
+  }
+
+  .introduction-figure {
+    margin-top: 0.4rem;
+  }
+
   .leaderboard-table thead th,
   .leaderboard-table tbody td {
     font-size: 0.9rem;
     padding: 0.55rem;
+  }
+
+  .leaderboard-nav {
+    justify-content: flex-start;
+  }
+
+  .data-example-carousel .slider-navigation-previous,
+  .data-example-carousel .slider-navigation-next {
+    width: 2.2rem;
+    height: 2.2rem;
   }
 
 }

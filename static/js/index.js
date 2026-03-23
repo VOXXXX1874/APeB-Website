@@ -39,7 +39,17 @@ $(document).ready(function() {
     }
 
 		// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
+    var carousels = bulmaCarousel.attach('.carousel:not(.data-example-carousel)', options);
+
+    bulmaCarousel.attach('.data-example-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      loop: true,
+      infinite: true,
+      autoplay: false,
+      navigation: true,
+      pagination: true
+    });
 
     // Loop on each carousel initialized
     for(var i = 0; i < carousels.length; i++) {
@@ -74,5 +84,18 @@ $(document).ready(function() {
     $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
 
     bulmaSlider.attach();
+
+    $('.leaderboard-nav-button').on('click', function() {
+      var target = $(this).data('leaderboard-target');
+      if (!target) {
+        return;
+      }
+
+      $('.leaderboard-nav-button').removeClass('is-active').attr('aria-selected', 'false');
+      $(this).addClass('is-active').attr('aria-selected', 'true');
+
+      $('.leaderboard-panel').removeClass('is-active');
+      $('.leaderboard-panel[data-leaderboard-panel="' + target + '"]').addClass('is-active');
+    });
 
 })
