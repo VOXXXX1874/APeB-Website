@@ -221,6 +221,14 @@ body {
   flex-wrap: wrap;
 }
 
+.leaderboard-subnav {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.7rem;
+  flex-wrap: wrap;
+}
+
 .leaderboard-nav-button {
   border: 1px solid #b9bec4;
   background: #f2f4f6;
@@ -244,11 +252,42 @@ body {
   color: #ffffff;
 }
 
+.leaderboard-subnav-button {
+  border: 1px solid #b5c0ca;
+  background: #f8fafb;
+  color: #3d4d5c;
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.34rem 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.leaderboard-subnav-button:hover {
+  background: #edf2f6;
+  border-color: #8a9aaa;
+}
+
+.leaderboard-subnav-button.is-active {
+  background: #4c6478;
+  border-color: #4c6478;
+  color: #ffffff;
+}
+
 .leaderboard-panel {
   display: none;
 }
 
 .leaderboard-panel.is-active {
+  display: block;
+}
+
+.leaderboard-query-panel {
+  display: none;
+}
+
+.leaderboard-query-panel.is-active {
   display: block;
 }
 
@@ -259,7 +298,7 @@ body {
 }
 
 .leaderboard-table {
-  min-width: 1320px;
+  min-width: 1240px;
   margin-bottom: 0;
   font-size: 0.9rem;
   table-layout: fixed;
@@ -378,6 +417,49 @@ body {
   background: #ffffff;
 }
 
+.citation-section {
+  padding-top: 2.1rem;
+  padding-bottom: 1.3rem;
+}
+
+.citation-block {
+  border: 1px solid #d6d8dc;
+  border-radius: 10px;
+  background: #f7f8fa;
+  overflow-x: auto;
+}
+
+.citation-block pre {
+  margin: 0;
+  padding: 1.2rem 1.3rem;
+  min-height: 120px;
+}
+
+.citation-block code {
+  font-size: 0.98rem;
+  color: #40444a;
+  font-family: 'Noto Sans', monospace;
+}
+
+.acknowledgement-section {
+  padding-top: 0.4rem;
+  padding-bottom: 2.6rem;
+}
+
+.acknowledgement-text {
+  color: #52565c;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.acknowledgement-text a {
+  color: #2f69bf;
+}
+
+.acknowledgement-text a:hover {
+  text-decoration: underline;
+}
+
 .recommendation-model-card {
   text-align: center;
 }
@@ -469,6 +551,15 @@ body {
     padding-bottom: 2.2rem;
   }
 
+  .citation-section {
+    padding-top: 1.6rem;
+    padding-bottom: 1rem;
+  }
+
+  .acknowledgement-section {
+    padding-bottom: 2rem;
+  }
+
   .introduction-figure {
     margin-top: 0.4rem;
   }
@@ -480,6 +571,10 @@ body {
   }
 
   .leaderboard-nav {
+    justify-content: flex-start;
+  }
+
+  .leaderboard-subnav {
     justify-content: flex-start;
   }
 
